@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "icon": "mdi:chevron-up-box-outline",
+    "text": "Rising Senior"
+  },
+  {
+    "id": 2,
+    "icon": "mdi:earth",
+    "text": "Made in Pennsylvania"
+  },
+  {
+    "id": 3,
+    "icon": "mdi:medal",
+    "text": "World's biggest JSON hater"
+  }
+]

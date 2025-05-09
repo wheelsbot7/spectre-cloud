@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import SvelteCounter from "../components/SvelteCounter.svelte";
+import PreactCounter from "../components/preact/PreactCounter.jsx";
+import ReactCounter from "../components/react/ReactCounter.jsx";
+import SolidCounter from "../components/solid/SolidCounter.jsx";
+import VueCounter from "../components/VueCounter.vue";
+---
+
+<Layout
+  title={"Svelte Test Page"}
+  description={"Stop reading this please."}
+	pagefindIgnore
+>
+  <div class="left" slot="left">
+    <Card class="toc-card">
+      <h2 class="no-mt">Info</h2>
+      <p class="overview-list">
+        This is an Astro page that integrates several JavaScript frameworks. Despite looking similar, they all work very differently under the hood.
+      </p>
+    </Card>
+  </div>
+  <article slot="right" data-pagefind-body>
+    <Card>
+      <div class="article-header" id="_top" data-pagefind-ignore>
+        <div class="header">
+          <div>
+            <h1 class="no-mt article-h1">Framework Showcase</h1>
+          </div>
+        </div>
+      </div>
+      <h2 style="color: #ff3e00; ">Svelte</h2>
+      <p>Svelte's unique "runes" system makes it simple to reactively change a component's state.</p>
+      <SvelteCounter client:only="svelte"/>
+      <hr  />
+      <h2 style="color: #58C4DC; ">React</h2>
+      <p>React's odd styling syntax makes it difficult to mix with other frameworks, so this component was styled entirely inline.</p>
+      <ReactCounter client:only="react"/>
+      <hr  />
+      <h2 style="color: #673AB8; ">Preact</h2>
+      <p>Preact's stripped-down approach was perfect for such a small component. React compatability wasn't necessary, so this compenent was incredibly lightweight.</p>
+      <PreactCounter client:only="preact"/>
+      <hr  />
+      <h2 style="color: #446B9E; ">Solid-js</h2>
+      <p>Solid's conditional reactivity allowed for intricate fine-tuning. For example, the number of clicks displayed to you cannot be accessed by the function that decides whether to render "time" or "times". To do that, said function interacts with the result of the variable's name as a function, or "count()". This level of customization wasn't necessary for a simple counter, but its implementation neatly illustrates Solid's advantages.</p>
+      <SolidCounter client:only="solid-js"/>
+      <hr  />
+      <h2 style="color: #42B883; ">Vue</h2>
+      <p>Vue's intuitive syntax was very easy to work with. Variables and functions can slot into HTML elements seamlessly.</p>
+      <VueCounter client:only="vue"/>
+      <hr  />
+      <p>Take a look at the <a href="https://github.com/wheelsbot7/Spectre">source code</a> if you want to know how these work in detail!</p>
+    </Card>
+  </article>
+</Layout>
+<style>
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+  
+</style>

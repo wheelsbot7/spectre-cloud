@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "icon": "mdi:github",
+    "text": "GitHub",
+    "link": "https://github.com/wheelsbot7/spectre"
+  },
+  {
+    "id": 2,
+    "icon": "ri:bluesky-fill",
+    "text": "Bluesky",
+    "link": "https://bsky.app/profile/wheelsbot.dev"
+  },
+  {
+    "id": 3,
+    "icon": "mdi:linkedin",
+    "text": "LinkedIn",
+    "link": "https://www.linkedin.com/in/owen-wertzberger-14992b164/"
+  }
+]

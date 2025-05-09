@@ -1,0 +1,90 @@
+---
+import "../styles/reset.css";
+import "../styles/globals.css";
+
+import Background from "../components/Background.astro";
+import Navbar from "../components/Navbar.astro";
+import LayoutGrid from "../components/LayoutGrid.astro";
+import { name, themeColor, twitterHandle } from "spectre:globals";
+import Analytics from '@vercel/analytics/astro';
+
+interface Props {
+	title: string;
+	description?: string;
+	image?: ImageMetadata;
+	pagefindIgnore?: boolean;
+	article?: {
+		createdAt: Date;
+		updatedAt?: Date;
+	};
+}
+
+const { title, description, image, pagefindIgnore, article } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<Analytics/>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&display=swap" rel="stylesheet">
+
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMCIgc3Ryb2tlLWRhc2hhcnJheT0iNDgiIHN0cm9rZS1kYXNob2Zmc2V0PSI0OCIgZD0iTTE3IDl2OWMwIDEuNjYgLTEuMzQgMyAtMyAzaC02Yy0xLjY2IDAgLTMgLTEuMzQgLTMgLTN2LTlaIj48YW5pbWF0ZSBmaWxsPSJmcmVlemUiIGF0dHJpYnV0ZU5hbWU9ImZpbGwtb3BhY2l0eSIgYmVnaW49IjAuOHMiIGR1cj0iMC4xNXMiIHZhbHVlcz0iMDswLjMiLz48YW5pbWF0ZSBmaWxsPSJmcmVlemUiIGF0dHJpYnV0ZU5hbWU9InN0cm9rZS1kYXNob2Zmc2V0IiBkdXI9IjAuNnMiIHZhbHVlcz0iNDg7MCIvPjwvcGF0aD48cGF0aCBzdHJva2UtZGFzaGFycmF5PSIxNCIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjE0IiBkPSJNMTcgOWgzYzAuNTUgMCAxIDAuNDUgMSAxdjNjMCAwLjU1IC0wLjQ1IDEgLTEgMWgtMyI+PGFuaW1hdGUgZmlsbD0iZnJlZXplIiBhdHRyaWJ1dGVOYW1lPSJzdHJva2UtZGFzaG9mZnNldCIgYmVnaW49IjAuNnMiIGR1cj0iMC4ycyIgdmFsdWVzPSIxNDswIi8+PC9wYXRoPjxtYXNrIGlkPSJsaW5lTWRDb2ZmZWVUd290b25lTG9vcDAiPjxwYXRoIHN0cm9rZT0iI2ZmZiIgZD0iTTggMGMwIDItMiAyLTIgNHMyIDIgMiA0LTIgMi0yIDQgMiAyIDIgNE0xMiAwYzAgMi0yIDItMiA0czIgMiAyIDQtMiAyLTIgNCAyIDIgMiA0TTE2IDBjMCAyLTIgMi0yIDRzMiAyIDIgNC0yIDItMiA0IDIgMiAyIDQiPjxhbmltYXRlTW90aW9uIGNhbGNNb2RlPSJsaW5lYXIiIGR1cj0iM3MiIHBhdGg9Ik0wIDB2LTgiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIi8+PC9wYXRoPjwvbWFzaz48cmVjdCB3aWR0aD0iMjQiIGhlaWdodD0iMCIgeT0iNyIgZmlsbD0iI2ZmZiIgbWFzaz0idXJsKCNsaW5lTWRDb2ZmZWVUd290b25lTG9vcDApIj48YW5pbWF0ZSBmaWxsPSJmcmVlemUiIGF0dHJpYnV0ZU5hbWU9InkiIGJlZ2luPSIwLjhzIiBkdXI9IjAuNnMiIHZhbHVlcz0iNzsyIi8+PGFuaW1hdGUgZmlsbD0iZnJlZXplIiBhdHRyaWJ1dGVOYW1lPSJoZWlnaHQiIGJlZ2luPSIwLjhzIiBkdXI9IjAuNnMiIHZhbHVlcz0iMDs1Ii8+PC9yZWN0PjwvZz48L3N2Zz4=" />
+		<meta name="generator" content={Astro.generator} />
+
+		<title>{title}</title>
+		{description && <meta name="description" content={description} />}
+		<meta name="theme-color" content={themeColor}>
+
+		<link rel="canonical" href={Astro.site} />
+    
+    <meta property="og:site_name" content="Wheelsblog V7">
+		<meta name="og:title" content={title} />
+		{description && <meta name="og:description" content={description} />}
+		<meta name="og:image" content={image?.src || '/img/og.png'} />
+		<meta name="og:url" content={Astro.site} />
+		{!article && <meta name="og:type" content="website" />}
+		<meta name="og:locale" content="en" />
+
+		{article && (
+			<meta name="og:type" content="article" />
+			<meta property="article:published_time" content={article.createdAt.toISOString()} />
+			<meta name="author" content={name} />
+		)}
+
+		{article && article.updatedAt && (
+			<meta property="article:modified_time" content={article.updatedAt.toISOString()} />
+		)}
+
+		<meta name="twitter:card" content="summary_large_image" />
+		{twitterHandle && (
+			<meta name="twitter:site" content={twitterHandle} />
+			<meta name="twitter:creator" content={twitterHandle} />
+		)}
+		<meta name="twitter:title" content={title} />
+		{description && <meta name="twitter:description" content={description} />}
+		<meta name="twitter:image" content={image?.src || '/img/og.png'} />
+	</head>
+	<script>
+  import mediumZoom from 'medium-zoom';
+  mediumZoom('img', {
+    margin: 16,
+    background: "#00000095",
+  });
+  </script>
+  <body>
+		<main data-pagefind-ignore={pagefindIgnore}>
+			<Navbar />
+			<LayoutGrid>
+				<slot name="left" slot="left" />
+				<slot name="right" slot="right" />
+			</LayoutGrid>
+			<slot name="404" />
+		</main>
+		<Background />
+	</body>
+</html>
